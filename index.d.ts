@@ -103,6 +103,7 @@ export interface ResizableProps extends React.HTMLAttributes<HTMLDivElement> {
     width?: string | number,
     height?: string | number,
   },
+  useDefaultSize?: boolean,
   size?: {
     width?: string | number,
     height?: string | number,
@@ -124,7 +125,7 @@ export interface ResizableProps extends React.HTMLAttributes<HTMLDivElement> {
 export default class Resizable extends React.Component<ResizableProps, ResizableState> {
 
   resizable: HTMLElement;
-  
+
 
   size: {
     width: number,
