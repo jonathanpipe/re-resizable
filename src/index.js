@@ -116,6 +116,7 @@ export type ResizableProps = {
   onResize?: ResizeCallback,
   onResizeStop?: ResizeCallback,
   defaultSize?: Size,
+  useDefaultSize?: boolean
 };
 
 type State = {
@@ -168,6 +169,7 @@ const definedProps = [
   'onResize',
   'onResizeStop',
   'handleComponent',
+  'useDefaultSize',
 ];
 
 const baseClassName = '__resizable_base__';
@@ -545,7 +547,10 @@ export default class Resizable extends React.Component<ResizableProps, State> {
   get size(): NumberSize {
     let width = 0;
     let height = 0;
-    if (typeof window !== 'undefined') {
+    if (this.props.useDefaultSize) {
+      width = this.props.defaultSize.width;
+      height = this.props.defaultSize.height;
+    } else if (typeof window !== 'undefined') {
       const orgWidth = this.resizable.offsetWidth;
       const orgHeight = this.resizable.offsetHeight;
       // HACK: Set position `relative` to get parent size.
