@@ -1,7 +1,7 @@
 {
   "name": "jsweetman-re-resizable",
   "version": "4.7.1",
-  "description": "Resizable component for React.",
+  "description": "Fork of re-resizble from https://github.com/bokuweb/react-resizable-box.",
   "title": "re-resizable",
   "main": "./lib/index.es5.js",
   "module": "./lib/index.js",

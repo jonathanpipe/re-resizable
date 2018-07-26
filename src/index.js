@@ -547,8 +547,10 @@ export default class Resizable extends React.Component<ResizableProps, State> {
   get size(): NumberSize {
     let width = 0;
     let height = 0;
-    if (this.props.useDefaultSize) {
+    if (this.props.useDefaultSize && this.props.defaultSize) {
+      //$FlowFixMe
       width = this.props.defaultSize.width;
+      //$FlowFixMe
       height = this.props.defaultSize.height;
     } else if (typeof window !== 'undefined') {
       const orgWidth = this.resizable.offsetWidth;
@@ -565,6 +567,7 @@ export default class Resizable extends React.Component<ResizableProps, State> {
       // Restore original position
       this.resizable.style.position = orgPosition;
     }
+    //$FlowFixMe
     return { width, height };
   }
 
